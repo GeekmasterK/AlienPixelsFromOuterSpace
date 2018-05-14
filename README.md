@@ -1,4 +1,4 @@
-# StarInvaders
+# Alien Pixels From Outer Space
 A Space Invaders clone made in Unity 2017.3.1p4
 
 Player Controls:
