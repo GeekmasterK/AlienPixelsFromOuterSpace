@@ -23,12 +23,4 @@ public class GameControl : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
-
-    void OnGUI()
-    {
-        GUIStyle style = new GUIStyle();
-        style.fontSize = 28;
-        style.normal.textColor = Color.white;
-        GUI.Label(new Rect(new Vector2(10f, 10f), new Vector2(80f, 50f)), "Score: " + score, style);
-    }
 }
