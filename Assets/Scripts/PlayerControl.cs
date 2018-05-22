@@ -8,7 +8,9 @@ public class PlayerControl : MonoBehaviour {
 
     private Rigidbody2D playerRigidbody;
 
-    // public GameObject bullet;
+    public GameObject bullet;
+
+    public GameObject firePoint;
 
 	// Use this for initialization
 	void Start ()
@@ -24,7 +26,7 @@ public class PlayerControl : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-		
+        Shoot();
 	}
 
     // Move the player
@@ -33,5 +35,14 @@ public class PlayerControl : MonoBehaviour {
         float horzMove = Input.GetAxisRaw("Horizontal");
 
         playerRigidbody.velocity = new Vector2(horzMove, 0f) * speed;
+    }
+
+    // Shoot a bullet
+    void Shoot()
+    {
+        if(Input.GetButtonDown("Shoot"))
+        {
+            Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
+        }
     }
 }
