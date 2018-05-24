@@ -12,6 +12,10 @@ public class EnemyControl : MonoBehaviour {
 
     private GameObject[] enemyFirePoints;
 
+    private List<GameObject> priorityFirePoints;
+
+    private GameObject currentFirePoint;
+
     public float minFireRateTime;
 
     public float maxFireRateTime;
@@ -44,7 +48,7 @@ public class EnemyControl : MonoBehaviour {
         {
             StartCoroutine(MoveDownAndTurn(-1));
         }
-
+        
         if (other.gameObject.tag == "Player")
         {
             anim.SetBool("IsDead", true);
@@ -78,25 +82,61 @@ public class EnemyControl : MonoBehaviour {
     void Shoot()
     {
         enemyFirePoints = GameObject.FindGameObjectsWithTag("EnemyFirePoint");
+        priorityFirePoints = new List<GameObject>();
+
         if (Time.time > baseFireWaitTime && enemyFirePoints.Length > 0)
         {
             baseFireWaitTime += Random.Range(minFireRateTime, maxFireRateTime);
             if(System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint"))
             {
-                Instantiate(enemyBullet, System.Array.Find(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint").transform.position, Quaternion.identity);
+                for(int i = 0; i < enemyFirePoints.Length; i++)
+                {
+                    if (enemyFirePoints[i].name == "EnemyGreenFirePoint")
+                    {
+                        priorityFirePoints.Add(enemyFirePoints[i]);
+                    }
+                }
+
+                Instantiate(enemyBullet, priorityFirePoints[Random.Range(0, priorityFirePoints.Count)].transform.position, Quaternion.identity);
             }
             else if (!System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint") && System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyYellowFirePoint"))
             {
-                Instantiate(enemyBullet, System.Array.Find(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyYellowFirePoint").transform.position, Quaternion.identity);
+                for (int i = 0; i < enemyFirePoints.Length; i++)
+                {
+                    if (enemyFirePoints[i].name == "EnemyYellowFirePoint")
+                    {
+                        priorityFirePoints.Add(enemyFirePoints[i]);
+                    }
+                }
+
+                Instantiate(enemyBullet, priorityFirePoints[Random.Range(0, priorityFirePoints.Count)].transform.position, Quaternion.identity);
             }
             else if(!System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint") && !System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyYellowFirePoint") && System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyOrangeFirePoint"))
             {
-                Instantiate(enemyBullet, System.Array.Find(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyOrangeFirePoint").transform.position, Quaternion.identity);
+                for (int i = 0; i < enemyFirePoints.Length; i++)
+                {
+                    if (enemyFirePoints[i].name == "EnemyOrangeFirePoint")
+                    {
+                        priorityFirePoints.Add(enemyFirePoints[i]);
+                    }
+                }
+
+                Instantiate(enemyBullet, priorityFirePoints[Random.Range(0, priorityFirePoints.Count)].transform.position, Quaternion.identity);
             }
             else if(!System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint") && !System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyYellowFirePoint") && !System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyOrangeFirePoint") && System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyBlueFirePoint"))
             {
-                Instantiate(enemyBullet, System.Array.Find(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyBlueFirePoint").transform.position, Quaternion.identity);
+                for (int i = 0; i < enemyFirePoints.Length; i++)
+                {
+                    if (enemyFirePoints[i].name == "EnemyBlueFirePoint")
+                    {
+                        priorityFirePoints.Add(enemyFirePoints[i]);
+                    }
+                }
+
+                Instantiate(enemyBullet, priorityFirePoints[Random.Range(0, priorityFirePoints.Count)].transform.position, Quaternion.identity);
             }
         }
+
+        priorityFirePoints.Clear();
     }
 }
