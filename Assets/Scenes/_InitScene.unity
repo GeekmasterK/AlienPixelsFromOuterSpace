@@ -156,6 +156,7 @@ MonoBehaviour:
   lives: 0
   score: 0
   level: 0
+  enemySpeed: 5
 --- !u!1 &803951399
 GameObject:
   m_ObjectHideFlags: 0

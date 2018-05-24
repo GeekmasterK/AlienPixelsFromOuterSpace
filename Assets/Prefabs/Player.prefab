@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4155120389685186}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: FirePoint
   m_TagString: FirePoint
   m_Icon: {fileID: 0}
@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 50648011912483798}
   - component: {fileID: 61464795886634154}
   - component: {fileID: 114025466722437980}
+  - component: {fileID: 95811182960588120}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -117,6 +118,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.52186584}
   m_EdgeRadius: 0
+--- !u!95 &95811182960588120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1829351531283540}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6aa64539d48602f4cb31b06c5dcbb6cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114025466722437980
 MonoBehaviour:
   m_ObjectHideFlags: 1

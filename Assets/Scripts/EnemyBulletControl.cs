@@ -2,36 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletControl : MonoBehaviour {
+public class EnemyBulletControl : MonoBehaviour {
+
+    private Rigidbody2D enemyBulletRigidbody;
 
     public float speed;
-
-    private Rigidbody2D bulletRigidbody;
 
 	// Use this for initialization
 	void Start ()
     {
-        bulletRigidbody = GetComponent<Rigidbody2D>();
-        bulletRigidbody.velocity = Vector2.up * speed;
+        enemyBulletRigidbody = GetComponent<Rigidbody2D>();
+        enemyBulletRigidbody.velocity = Vector2.down * speed;
 	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
         Animator anim = other.GetComponent<Animator>();
 
-        if(other.tag == "TopWall")
+        if(other.tag == "BottomWall")
         {
             Destroy(gameObject);
         }
 
-        if(other.tag == "Enemy")
+        if(other.tag == "Player")
         {
             Destroy(gameObject);
             anim.SetBool("IsDead", true);
             other.gameObject.GetComponent<Rigidbody2D>().Sleep();
             other.gameObject.GetComponent<Collider2D>().enabled = false;
-            addPoints();
-            DestroyObject(other.gameObject, 0.5f);
+            Destroy(other.gameObject, 0.5f);
         }
 
         if(other.tag == "Barrier")
@@ -39,19 +38,12 @@ public class BulletControl : MonoBehaviour {
             Destroy(gameObject);
             anim.SetBool("IsDead", true);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
-            DestroyObject(other.gameObject, 0.5f);
+            Destroy(other.gameObject, 0.5f);
         }
     }
 
     void OnBecameInvisible()
     {
         Destroy(gameObject);
-    }
-
-    // Increment player score
-    void addPoints()
-    {
-        EnemyControl enemy = FindObjectOfType<EnemyControl>();
-        GameControl.control.score += enemy.points;
     }
 }

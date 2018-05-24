@@ -9,6 +9,7 @@ public class GameControl : MonoBehaviour {
     public float lives;
     public float score;
     public float level;
+    public float enemySpeed;
 
     // Use this for initialization
     void Awake()
@@ -22,5 +23,6 @@ public class GameControl : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-	}
+
+    }
 }
