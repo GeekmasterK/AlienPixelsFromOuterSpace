@@ -15,6 +15,7 @@ TagManager:
   - TopWall
   - BottomWall
   - EnemyFirePoint
+  - EnemyFormation
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Barrier
   - EnemyBullet
   - FirePoint
-  - 
+  - EnemyFormation
   - 
   - 
   - 

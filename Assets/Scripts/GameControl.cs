@@ -10,6 +10,7 @@ public class GameControl : MonoBehaviour {
     public float score;
     public float level;
     public float enemySpeed;
+    public GameObject[] enemies;
 
     // Use this for initialization
     void Awake()
@@ -23,6 +24,10 @@ public class GameControl : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
 
+    void Update()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 }

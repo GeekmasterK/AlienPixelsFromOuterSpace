@@ -6,15 +6,13 @@ public class EnemyControl : MonoBehaviour {
 
     public float points;
 
-    private Rigidbody2D enemyRigidBody;
+    //private Rigidbody2D enemyRigidBody;
 
     public GameObject enemyBullet;
 
     private GameObject[] enemyFirePoints;
 
     private List<GameObject> priorityFirePoints;
-
-    private GameObject currentFirePoint;
 
     public float minFireRateTime;
 
@@ -25,8 +23,7 @@ public class EnemyControl : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        enemyRigidBody = GetComponent<Rigidbody2D>();
-        enemyRigidBody.velocity = new Vector2(1f, 0f) * GameControl.control.enemySpeed;
+       // enemyRigidBody = GetComponent<Rigidbody2D>();
 
         baseFireWaitTime += Random.Range(minFireRateTime, maxFireRateTime);
     }
@@ -40,15 +37,6 @@ public class EnemyControl : MonoBehaviour {
     {
         Animator anim = other.gameObject.GetComponent<Animator>();
 
-        if (other.gameObject.tag == "LeftWall")
-        {
-            StartCoroutine(MoveDownAndTurn(1));
-        }
-        if(other.gameObject.tag == "RightWall")
-        {
-            StartCoroutine(MoveDownAndTurn(-1));
-        }
-        
         if (other.gameObject.tag == "Player")
         {
             anim.SetBool("IsDead", true);
@@ -59,15 +47,15 @@ public class EnemyControl : MonoBehaviour {
     }
 
     // Turn in opposite direction
-    void Turn(int direction)
+    /*void Turn(int direction)
     {
         Vector2 newVelocity = enemyRigidBody.velocity;
         newVelocity.x = GameControl.control.enemySpeed * direction;
         enemyRigidBody.velocity = newVelocity;
-    }
+    }*/
 
     // Move down after hitting a wall
-    IEnumerator MoveDownAndTurn(int direction)
+    /*IEnumerator MoveDownAndTurn(int direction)
     {
         Vector2 newVelocity = enemyRigidBody.velocity;
         newVelocity.y = GameControl.control.enemySpeed * -1;
@@ -76,7 +64,7 @@ public class EnemyControl : MonoBehaviour {
         newVelocity.y = 0f;
         enemyRigidBody.velocity = newVelocity;
         Turn(direction);
-    }
+    }*/
 
     // Shoot based on priority at interval
     void Shoot()

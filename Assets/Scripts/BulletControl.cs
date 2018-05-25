@@ -28,7 +28,6 @@ public class BulletControl : MonoBehaviour {
         {
             Destroy(gameObject);
             anim.SetBool("IsDead", true);
-            other.gameObject.GetComponent<Rigidbody2D>().Sleep();
             other.gameObject.GetComponent<Collider2D>().enabled = false;
             addPoints();
             DestroyObject(other.gameObject, 0.5f);

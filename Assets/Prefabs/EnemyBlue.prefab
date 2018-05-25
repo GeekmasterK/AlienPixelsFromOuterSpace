@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212022394100362882}
   - component: {fileID: 95506574436377836}
   - component: {fileID: 61372846859760434}
-  - component: {fileID: 50915723620972114}
   - component: {fileID: 114846457250120760}
   m_Layer: 11
   m_Name: EnemyBlue
@@ -73,26 +72,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50915723620972114
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1456483959599406}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!61 &61372846859760434
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -149,10 +128,6 @@ MonoBehaviour:
   points: 25
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  enemyFirePointGreen: {fileID: 0}
-  enemyFirePointYellow: {fileID: 0}
-  enemyFirePointOrange: {fileID: 0}
-  enemyFirePointBlue: {fileID: 1899966677723662}
   minFireRateTime: 1
   maxFireRateTime: 3
   baseFireWaitTime: 3
