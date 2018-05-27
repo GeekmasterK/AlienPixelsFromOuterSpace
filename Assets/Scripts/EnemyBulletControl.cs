@@ -28,7 +28,7 @@ public class EnemyBulletControl : MonoBehaviour {
         {
             Destroy(gameObject);
             anim.SetBool("IsDead", true);
-            other.gameObject.GetComponent<Rigidbody2D>().Sleep();
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(other.gameObject, 0.5f);
         }

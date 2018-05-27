@@ -12,7 +12,7 @@ public class LevelTransition : MonoBehaviour {
     {
 		if(GameControl.control.enemies.Length <= 0)
         {
-            GameControl.control.level = levelToLoad;
+            GameControl.control.level++;
             SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
         }
 	}
