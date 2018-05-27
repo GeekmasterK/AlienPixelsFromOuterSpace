@@ -1349,8 +1349,8 @@ MonoBehaviour:
   points: 25
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114039900327492608
 MonoBehaviour:
@@ -1366,8 +1366,8 @@ MonoBehaviour:
   points: 10
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114094374854877618
 MonoBehaviour:
@@ -1383,8 +1383,8 @@ MonoBehaviour:
   points: 25
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114106991201576544
 MonoBehaviour:
@@ -1400,8 +1400,8 @@ MonoBehaviour:
   points: 20
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114170784215853312
 MonoBehaviour:
@@ -1417,8 +1417,8 @@ MonoBehaviour:
   points: 25
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114310279248282952
 MonoBehaviour:
@@ -1434,8 +1434,8 @@ MonoBehaviour:
   points: 20
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114626366764028456
 MonoBehaviour:
@@ -1462,8 +1462,8 @@ MonoBehaviour:
   points: 25
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114702614274889974
 MonoBehaviour:
@@ -1479,8 +1479,8 @@ MonoBehaviour:
   points: 10
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114778988237545010
 MonoBehaviour:
@@ -1496,8 +1496,8 @@ MonoBehaviour:
   points: 25
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114799741171560750
 MonoBehaviour:
@@ -1513,8 +1513,8 @@ MonoBehaviour:
   points: 20
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114892804269230852
 MonoBehaviour:
@@ -1530,8 +1530,8 @@ MonoBehaviour:
   points: 10
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!114 &114992254935037814
 MonoBehaviour:
@@ -1547,8 +1547,8 @@ MonoBehaviour:
   points: 25
   enemyBullet: {fileID: 1596398809920226, guid: 07c925b8b08bdf540b142d268b1cf92b,
     type: 2}
-  minFireRateTime: 1
-  maxFireRateTime: 3
+  minFireRateTime: 4
+  maxFireRateTime: 8
   baseFireWaitTime: 3
 --- !u!212 &212145160311301678
 SpriteRenderer:

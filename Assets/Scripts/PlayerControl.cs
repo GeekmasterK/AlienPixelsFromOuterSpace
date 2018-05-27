@@ -12,10 +12,13 @@ public class PlayerControl : MonoBehaviour {
 
     public GameObject firePoint;
 
+    public GameObject playerStartPoint;
+
 	// Use this for initialization
 	void Start ()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
+        transform.position = playerStartPoint.transform.position;
 	}
 
     void FixedUpdate()

@@ -149,6 +149,7 @@ MonoBehaviour:
   speed: 20
   bullet: {fileID: 1224163438293776, guid: d1659fbe2ad1a284cae743bda3ead472, type: 2}
   firePoint: {fileID: 1648835765101824}
+  playerStartPoint: {fileID: 0}
 --- !u!212 &212845181264219878
 SpriteRenderer:
   m_ObjectHideFlags: 1

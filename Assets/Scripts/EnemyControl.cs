@@ -47,8 +47,9 @@ public class EnemyControl : MonoBehaviour {
     {
         enemyFirePoints = GameObject.FindGameObjectsWithTag("EnemyFirePoint");
         priorityFirePoints = new List<GameObject>();
+        
 
-        if (Time.time > baseFireWaitTime && enemyFirePoints.Length > 0)
+        if (Time.timeSinceLevelLoad > baseFireWaitTime && enemyFirePoints.Length > 0)
         {
             baseFireWaitTime += Random.Range(minFireRateTime, maxFireRateTime);
             if(System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint"))
