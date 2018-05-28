@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa05b7af0b3b474296792d9f7c5cd75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
   bullet: {fileID: 1224163438293776, guid: d1659fbe2ad1a284cae743bda3ead472, type: 2}
   firePoint: {fileID: 1648835765101824}
   playerStartPoint: {fileID: 0}

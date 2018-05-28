@@ -8,11 +8,17 @@ public class EnemyBulletControl : MonoBehaviour {
 
     public float speed;
 
+    private EnemyFormation formation;
+
+    private PlayerControl player;
+
 	// Use this for initialization
 	void Start ()
     {
         enemyBulletRigidbody = GetComponent<Rigidbody2D>();
         enemyBulletRigidbody.velocity = Vector2.down * speed;
+        formation = FindObjectOfType<EnemyFormation>();
+        player = FindObjectOfType<PlayerControl>();
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -30,7 +36,10 @@ public class EnemyBulletControl : MonoBehaviour {
             anim.SetBool("IsDead", true);
             other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
-            Destroy(other.gameObject, 0.5f);
+            formation.canShoot = false;
+            formation.formationRigidBody.velocity = new Vector2(0f, 0f);
+            player.playerDead = true;
+            GameControl.control.LoseLife();
         }
 
         if(other.tag == "Barrier")

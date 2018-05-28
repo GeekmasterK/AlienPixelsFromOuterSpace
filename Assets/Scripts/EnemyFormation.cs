@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyFormation : MonoBehaviour {
 
     public static EnemyFormation formation;
-    private Rigidbody2D formationRigidBody;
+    public Rigidbody2D formationRigidBody;
+    public bool canShoot;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         formationRigidBody = GetComponent<Rigidbody2D>();
         formationRigidBody.velocity = new Vector2(1f, 0f) * GameControl.control.enemySpeed;
+        canShoot = true;
     }
 
     void OnCollisionEnter2D(Collision2D other)

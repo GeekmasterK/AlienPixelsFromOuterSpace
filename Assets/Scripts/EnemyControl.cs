@@ -18,9 +18,12 @@ public class EnemyControl : MonoBehaviour {
 
     public float baseFireWaitTime;
 
+    private EnemyFormation formation;
+
 	// Use this for initialization
 	void Start ()
-    { 
+    {
+        formation = FindObjectOfType<EnemyFormation>();
         baseFireWaitTime += Random.Range(minFireRateTime, maxFireRateTime);
     }
 
@@ -48,8 +51,8 @@ public class EnemyControl : MonoBehaviour {
         enemyFirePoints = GameObject.FindGameObjectsWithTag("EnemyFirePoint");
         priorityFirePoints = new List<GameObject>();
         
-
-        if (Time.timeSinceLevelLoad > baseFireWaitTime && enemyFirePoints.Length > 0)
+        
+        if (Time.timeSinceLevelLoad > baseFireWaitTime && enemyFirePoints.Length > 0 && formation.canShoot)
         {
             baseFireWaitTime += Random.Range(minFireRateTime, maxFireRateTime);
             if(System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint"))

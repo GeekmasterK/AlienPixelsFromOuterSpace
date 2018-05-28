@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4964097083537108}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: PlayerStartPoint
   m_TagString: PlayerStartPoint
   m_Icon: {fileID: 0}

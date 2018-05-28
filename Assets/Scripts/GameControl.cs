@@ -31,4 +31,11 @@ public class GameControl : MonoBehaviour {
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
+
+    // Player loses a life, and the level resets
+    public void LoseLife()
+    {
+        lives--;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

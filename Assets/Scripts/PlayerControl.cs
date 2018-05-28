@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -14,8 +15,10 @@ public class PlayerControl : MonoBehaviour {
 
     public GameObject playerStartPoint;
 
-	// Use this for initialization
-	void Start ()
+    public bool playerDead;
+
+    // Use this for initialization
+    void Start ()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         transform.position = playerStartPoint.transform.position;
@@ -23,20 +26,26 @@ public class PlayerControl : MonoBehaviour {
 
     void FixedUpdate()
     {
-        MovePlayer();
+        if (!playerDead)
+        {
+            MovePlayer();
+        }
     }
 
     // Update is called once per frame
     void Update ()
     {
-        Shoot();
+        if (!playerDead)
+        {
+            Shoot();
+        }
 	}
 
     // Move the player
     void MovePlayer()
     {
         float horzMove = Input.GetAxisRaw("Horizontal");
-
+        
         playerRigidbody.velocity = new Vector2(horzMove, 0f) * speed;
     }
 
