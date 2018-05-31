@@ -18,6 +18,7 @@ TagManager:
   - EnemyFormation
   - BarrierGroup
   - PlayerStartPoint
+  - FormationStartPoint
   layers:
   - Default
   - TransparentFX

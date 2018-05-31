@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour {
 
-    public int levelToLoad;
+    public string levelToLoad;
 	
 	// Update is called once per frame
 	void Update ()

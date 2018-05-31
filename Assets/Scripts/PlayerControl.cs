@@ -13,20 +13,19 @@ public class PlayerControl : MonoBehaviour {
 
     public GameObject firePoint;
 
-    public GameObject playerStartPoint;
-
-    public bool playerDead;
+    private GameObject playerStartPoint;
 
     // Use this for initialization
     void Start ()
     {
+        playerStartPoint = GameObject.FindGameObjectWithTag("PlayerStartPoint");
         playerRigidbody = GetComponent<Rigidbody2D>();
         transform.position = playerStartPoint.transform.position;
 	}
 
     void FixedUpdate()
     {
-        if (!playerDead)
+        if (!GameControl.control.playerDead)
         {
             MovePlayer();
         }
@@ -35,7 +34,7 @@ public class PlayerControl : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (!playerDead)
+        if (!GameControl.control.playerDead)
         {
             Shoot();
         }

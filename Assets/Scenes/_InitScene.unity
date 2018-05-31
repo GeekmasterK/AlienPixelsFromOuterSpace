@@ -157,7 +157,14 @@ MonoBehaviour:
   score: 0
   level: 1
   enemySpeed: 3
+  playerDead: 0
+  enemyCanShoot: 1
   enemies: []
+  player: {fileID: 1829351531283540, guid: 23c6982f4e949d34f9e2442a127ff5aa, type: 2}
+  playerStartPoint: {fileID: 0}
+  formationStartPoint: {fileID: 0}
+  formation: {fileID: 0}
+  formationRigidBody: {fileID: 0}
 --- !u!1 &803951399
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,10 +189,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 803951399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1201757812a85f448b3869fc12559bc2, type: 3}
+  m_Script: {fileID: 11500000, guid: ce5fdcac47fc2034aac2b925ffade7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 1
+  sceneToLoad: Level1
 --- !u!4 &803951401
 Transform:
   m_ObjectHideFlags: 0

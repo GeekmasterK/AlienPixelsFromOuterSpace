@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TransitionScene : MonoBehaviour {
 
-    public int sceneToLoad;
+    public string sceneToLoad;
 
 	// Use this for initialization
 	void Awake ()

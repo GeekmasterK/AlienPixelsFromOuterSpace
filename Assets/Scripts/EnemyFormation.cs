@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class EnemyFormation : MonoBehaviour {
 
-    public static EnemyFormation formation;
     public Rigidbody2D formationRigidBody;
-    public bool canShoot;
+    public GameObject formationStartPoint;
 
 	// Use this for initialization
 	void Awake ()
     {
         formationRigidBody = GetComponent<Rigidbody2D>();
         formationRigidBody.velocity = new Vector2(1f, 0f) * GameControl.control.enemySpeed;
-        canShoot = true;
     }
 
     void OnCollisionEnter2D(Collision2D other)

@@ -11,7 +11,14 @@ public class GameControl : MonoBehaviour {
     public float score;
     public float level;
     public float enemySpeed;
+    public bool playerDead = false;
+    public bool enemyCanShoot = true;
     public GameObject[] enemies;
+    public GameObject player;
+    public GameObject playerStartPoint;
+    public GameObject formationStartPoint;
+    public GameObject formation;
+    public Rigidbody2D formationRigidBody;
 
     // Use this for initialization
     void Awake()
@@ -30,12 +37,28 @@ public class GameControl : MonoBehaviour {
     void Update()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        playerStartPoint = GameObject.FindGameObjectWithTag("PlayerStartPoint");
+        formationStartPoint = GameObject.FindGameObjectWithTag("FormationStartPoint");
+        formation = GameObject.FindGameObjectWithTag("EnemyFormation");
+        formationRigidBody = formation.gameObject.GetComponent<Rigidbody2D>();
+
+        if(playerDead)
+        {
+            StartCoroutine(LoseLife());
+        }
+        playerDead = false;
     }
 
     // Player loses a life, and the level resets
-    public void LoseLife()
+    public IEnumerator LoseLife()
     {
+        enemyCanShoot = false;
+        formationRigidBody.velocity = new Vector2(0f, 0f);
+        yield return new WaitForSeconds(2f);
         lives--;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        formation.transform.position = formationStartPoint.transform.position;
+        enemyCanShoot = true;
+        formationRigidBody.velocity = new Vector2(1f, 0f) * enemySpeed;
+        Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
     }
 }
