@@ -12,7 +12,9 @@ public class GameControl : MonoBehaviour {
     public float level;
     public float enemySpeed;
     public bool playerDead = false;
+    public bool playerHit = false;
     public bool enemyCanShoot = true;
+    public bool gameOver = false;
     public GameObject[] enemies;
     public GameObject player;
     public GameObject playerStartPoint;
@@ -42,17 +44,23 @@ public class GameControl : MonoBehaviour {
         formation = GameObject.FindGameObjectWithTag("EnemyFormation");
         formationRigidBody = formation.gameObject.GetComponent<Rigidbody2D>();
 
-        if(playerDead)
+        if(playerHit)
         {
             StartCoroutine(LoseLife());
         }
-        playerDead = false;
+        playerHit = false;
+
+        if(lives <= 0f)
+        {
+            gameOver = true;
+        }
     }
 
     // Player loses a life, and the level resets
     public IEnumerator LoseLife()
     {
         enemyCanShoot = false;
+        playerDead = true;
         formationRigidBody.velocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(2f);
         lives--;
@@ -60,5 +68,6 @@ public class GameControl : MonoBehaviour {
         enemyCanShoot = true;
         formationRigidBody.velocity = new Vector2(1f, 0f) * enemySpeed;
         Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
+        playerDead = false;
     }
 }

@@ -32,11 +32,16 @@ public class EnemyControl : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D other)
     {
         Animator anim = other.gameObject.GetComponent<Animator>();
+        Animator thisAnim = gameObject.GetComponent<Animator>();
 
         if (other.gameObject.tag == "Player")
         {
+            Destroy(gameObject);
+            GameControl.control.playerHit = true;
             anim.SetBool("IsDead", true);
-            other.gameObject.GetComponent<Rigidbody2D>().Sleep();
+            thisAnim.SetBool("IsDead", true);
+            transform.parent = null;
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(other.gameObject, 0.5f);
         }

@@ -129,7 +129,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6aa64539d48602f4cb31b06c5dcbb6cf, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -149,7 +149,6 @@ MonoBehaviour:
   speed: 15
   bullet: {fileID: 1224163438293776, guid: d1659fbe2ad1a284cae743bda3ead472, type: 2}
   firePoint: {fileID: 1648835765101824}
-  playerStartPoint: {fileID: 0}
 --- !u!212 &212845181264219878
 SpriteRenderer:
   m_ObjectHideFlags: 1

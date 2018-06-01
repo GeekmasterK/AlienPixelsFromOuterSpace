@@ -27,10 +27,10 @@ public class EnemyBulletControl : MonoBehaviour {
         if(other.tag == "Player")
         {
             Destroy(gameObject);
+            GameControl.control.playerHit = true;
             anim.SetBool("IsDead", true);
             other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
-            GameControl.control.playerDead = true;
             Destroy(other.gameObject, 0.5f);
         }
 
