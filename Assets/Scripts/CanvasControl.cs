@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CanvasControl : MonoBehaviour {
 
-    public string levelToLoad;
+    public string firstLevel;
+    public string initScene;
     public GameObject gameOverUI;
 
     void Update()
@@ -30,6 +31,17 @@ public class CanvasControl : MonoBehaviour {
         GameControl.control.level = 1f;
         GameControl.control.gameOver = false;
         gameOverUI.SetActive(false);
-        SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
+        SceneManager.LoadScene(firstLevel, LoadSceneMode.Single);
+    }
+
+    public void ReturnToTitle()
+    {
+        Time.timeScale = 1f;
+        GameControl.control.lives = 3f;
+        GameControl.control.score = 0f;
+        GameControl.control.level = 1f;
+        GameControl.control.gameOver = false;
+        gameOverUI.SetActive(false);
+        SceneManager.LoadScene(initScene, LoadSceneMode.Single);
     }
 }

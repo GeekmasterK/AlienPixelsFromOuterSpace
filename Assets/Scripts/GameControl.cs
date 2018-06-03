@@ -42,7 +42,11 @@ public class GameControl : MonoBehaviour {
         playerStartPoint = GameObject.FindGameObjectWithTag("PlayerStartPoint");
         formationStartPoint = GameObject.FindGameObjectWithTag("FormationStartPoint");
         formation = GameObject.FindGameObjectWithTag("EnemyFormation");
-        formationRigidBody = formation.gameObject.GetComponent<Rigidbody2D>();
+
+        if (formation != null)
+        {
+            formationRigidBody = formation.gameObject.GetComponent<Rigidbody2D>();
+        }
 
         if(playerHit)
         {
