@@ -19,4 +19,10 @@ public class TitleScreenControl : MonoBehaviour {
         titleScreenUI.SetActive(false);
         howToPlayUIPage1.SetActive(true);
     }
+
+    public void ShowTitle()
+    {
+        howToPlayUIPage1.SetActive(false);
+        titleScreenUI.SetActive(true);
+    }
 }

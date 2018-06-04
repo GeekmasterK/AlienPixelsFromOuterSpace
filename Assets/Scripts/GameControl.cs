@@ -9,6 +9,8 @@ public class GameControl : MonoBehaviour {
 
     public float lives;
     public float score;
+    public float scoreForExtraLife;
+    public float extraLifeIncrement;
     public float level;
     public float enemySpeed;
     public bool playerDead = false;
@@ -57,6 +59,12 @@ public class GameControl : MonoBehaviour {
         if(lives <= 0f)
         {
             gameOver = true;
+        }
+
+        if(lives > 0f && score >= scoreForExtraLife)
+        {
+            scoreForExtraLife += extraLifeIncrement;
+            lives++;
         }
     }
 

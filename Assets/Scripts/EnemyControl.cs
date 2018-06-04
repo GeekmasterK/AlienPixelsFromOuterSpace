@@ -50,11 +50,12 @@ public class EnemyControl : MonoBehaviour {
     // Shoot based on priority at interval
     void Shoot()
     {
+        float timeSinceStart = Time.timeSinceLevelLoad;
         enemyFirePoints = GameObject.FindGameObjectsWithTag("EnemyFirePoint");
         priorityFirePoints = new List<GameObject>();
         
         
-        if (Time.timeSinceLevelLoad > baseFireWaitTime && enemyFirePoints.Length > 0 && GameControl.control.enemyCanShoot)
+        if (timeSinceStart > baseFireWaitTime && enemyFirePoints.Length > 0 && GameControl.control.enemyCanShoot)
         {
             baseFireWaitTime += Random.Range(minFireRateTime, maxFireRateTime);
             if(System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint"))

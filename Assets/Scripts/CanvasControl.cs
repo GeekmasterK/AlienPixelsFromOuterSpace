@@ -8,9 +8,21 @@ public class CanvasControl : MonoBehaviour {
     public string firstLevel;
     public string initScene;
     public GameObject gameOverUI;
+    public GameObject pauseMenuUI;
+    public bool gamePaused;
 
     void Update()
     {
+        if(Input.GetButtonDown("Pause") && !gamePaused)
+        {
+            PauseGame();
+        }
+
+        else if(Input.GetButtonDown("Pause") && gamePaused)
+        {
+            ResumeGame();
+        }
+
         if(GameControl.control.gameOver)
         {
             ShowGameOver();
@@ -21,6 +33,20 @@ public class CanvasControl : MonoBehaviour {
     {
         Time.timeScale = 0f;
         gameOverUI.SetActive(true);
+    }
+
+    void PauseGame()
+    {
+        gamePaused = true;
+        Time.timeScale = 0f;
+        pauseMenuUI.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        gamePaused = false;
+        Time.timeScale = 1f;
+        pauseMenuUI.SetActive(false);
     }
 
     public void RestartGame()
