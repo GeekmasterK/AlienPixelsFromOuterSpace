@@ -17,6 +17,8 @@ public class GameControl : MonoBehaviour {
     public bool playerHit = false;
     public bool enemyCanShoot = true;
     public bool gameOver = false;
+    public bool ufoSpawned = false;
+    public bool enemiesOnScreen = false;
     public GameObject[] enemies;
     public GameObject player;
     public GameObject playerStartPoint;
@@ -35,7 +37,13 @@ public class GameControl : MonoBehaviour {
         else if (control != this)
         {
             Destroy(gameObject);
+            return;
         }
+    }
+
+    void Start()
+    {
+        AudioManager.audioManager.Play("UFO");   
     }
 
     void Update()

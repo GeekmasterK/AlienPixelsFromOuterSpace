@@ -19,6 +19,8 @@ TagManager:
   - BarrierGroup
   - PlayerStartPoint
   - FormationStartPoint
+  - UFO
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -37,7 +39,7 @@ TagManager:
   - FirePoint
   - EnemyFormation
   - StartPoint
-  - 
+  - UFO
   - 
   - 
   - 

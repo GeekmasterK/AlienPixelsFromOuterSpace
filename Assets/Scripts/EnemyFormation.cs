@@ -13,6 +13,7 @@ public class EnemyFormation : MonoBehaviour {
     {
         formationRigidBody = GetComponent<Rigidbody2D>();
         formationRigidBody.velocity = new Vector2(1f, 0f) * GameControl.control.enemySpeed;
+        AudioManager.audioManager.Play("EnemySound");
     }
 
     void OnCollisionEnter2D(Collision2D other)
