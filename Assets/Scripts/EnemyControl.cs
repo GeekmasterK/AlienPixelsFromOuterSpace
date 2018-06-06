@@ -38,6 +38,8 @@ public class EnemyControl : MonoBehaviour {
         {
             Destroy(gameObject);
             GameControl.control.playerHit = true;
+            AudioManager.audioManager.Play("PlayerDead");
+            AudioManager.audioManager.Play("EnemyShot");
             anim.SetBool("IsDead", true);
             thisAnim.SetBool("IsDead", true);
             transform.parent = null;
@@ -67,7 +69,7 @@ public class EnemyControl : MonoBehaviour {
                         priorityFirePoints.Add(enemyFirePoints[i]);
                     }
                 }
-
+                AudioManager.audioManager.Play("EnemyFire");
                 Instantiate(enemyBullet, priorityFirePoints[Random.Range(0, priorityFirePoints.Count)].transform.position, Quaternion.identity);
             }
             else if (!System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint") && System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyYellowFirePoint"))
@@ -79,7 +81,7 @@ public class EnemyControl : MonoBehaviour {
                         priorityFirePoints.Add(enemyFirePoints[i]);
                     }
                 }
-
+                AudioManager.audioManager.Play("EnemyFire");
                 Instantiate(enemyBullet, priorityFirePoints[Random.Range(0, priorityFirePoints.Count)].transform.position, Quaternion.identity);
             }
             else if(!System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint") && !System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyYellowFirePoint") && System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyOrangeFirePoint"))
@@ -91,7 +93,7 @@ public class EnemyControl : MonoBehaviour {
                         priorityFirePoints.Add(enemyFirePoints[i]);
                     }
                 }
-
+                AudioManager.audioManager.Play("EnemyFire");
                 Instantiate(enemyBullet, priorityFirePoints[Random.Range(0, priorityFirePoints.Count)].transform.position, Quaternion.identity);
             }
             else if(!System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyGreenFirePoint") && !System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyYellowFirePoint") && !System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyOrangeFirePoint") && System.Array.Exists(enemyFirePoints, firePoint => firePoint.gameObject.name == "EnemyBlueFirePoint"))
@@ -103,7 +105,7 @@ public class EnemyControl : MonoBehaviour {
                         priorityFirePoints.Add(enemyFirePoints[i]);
                     }
                 }
-
+                AudioManager.audioManager.Play("EnemyFire");
                 Instantiate(enemyBullet, priorityFirePoints[Random.Range(0, priorityFirePoints.Count)].transform.position, Quaternion.identity);
             }
         }

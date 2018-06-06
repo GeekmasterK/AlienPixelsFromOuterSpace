@@ -27,6 +27,7 @@ public class BulletControl : MonoBehaviour {
         if(other.tag == "Enemy")
         {
             Destroy(gameObject);
+            AudioManager.audioManager.Play("EnemyShot");
             anim.SetBool("IsDead", true);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
             other.transform.parent = null;
@@ -41,6 +42,8 @@ public class BulletControl : MonoBehaviour {
         if (other.tag == "UFO")
         {
             Destroy(gameObject);
+            AudioManager.audioManager.Play("EnemyShot");
+            AudioManager.audioManager.Stop("UFO");
             anim.SetBool("IsDead", true);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
             other.gameObject.GetComponent<Rigidbody2D>().Sleep();
@@ -51,6 +54,7 @@ public class BulletControl : MonoBehaviour {
         if (other.tag == "Barrier")
         {
             Destroy(gameObject);
+            AudioManager.audioManager.Play("BarrierShot");
             anim.SetBool("IsDead", true);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
             DestroyObject(other.gameObject, 0.5f);

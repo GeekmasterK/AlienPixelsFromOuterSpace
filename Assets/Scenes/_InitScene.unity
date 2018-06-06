@@ -199,17 +199,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: UFO
+  - name: UFOTitle
     clip: {fileID: 8300000, guid: 1f85195763b7b33498b424d335be6afc, type: 3}
     volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemySound
-    clip: {fileID: 8300000, guid: 1f85195763b7b33498b424d335be6afc, type: 3}
+    clip: {fileID: 8300000, guid: 9ffbb04b6a7e05e4480505529e317317, type: 3}
     volume: 0.5
-    pitch: 0.31
+    pitch: 0.3
     loop: 1
+    source: {fileID: 0}
+  - name: EnemyFire
+    clip: {fileID: 8300000, guid: aa12918ee471c9f4ca6cdb391837065d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerShoot
+    clip: {fileID: 8300000, guid: ba18501450aa0744c808cadf7d83f8c9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: UFO
+    clip: {fileID: 8300000, guid: 1f85195763b7b33498b424d335be6afc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: EnemyShot
+    clip: {fileID: 8300000, guid: ee1b4dd63602a5b4cbc7930eafe8b726, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDead
+    clip: {fileID: 8300000, guid: 2cb6f527e63488d4c9139cfa2ec40610, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BarrierShot
+    clip: {fileID: 8300000, guid: d45e98e69a1249c46b3f3f3ceecd62ad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &498492116
 Transform:

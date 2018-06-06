@@ -24,7 +24,9 @@ public class GameControl : MonoBehaviour {
     public GameObject playerStartPoint;
     public GameObject formationStartPoint;
     public GameObject formation;
+    public GameObject ufo;
     public Rigidbody2D formationRigidBody;
+    public Rigidbody2D ufoRigidbody;
 
     // Use this for initialization
     void Awake()
@@ -43,7 +45,7 @@ public class GameControl : MonoBehaviour {
 
     void Start()
     {
-        AudioManager.audioManager.Play("UFO");   
+        AudioManager.audioManager.Play("UFOTitle");   
     }
 
     void Update()
@@ -52,10 +54,16 @@ public class GameControl : MonoBehaviour {
         playerStartPoint = GameObject.FindGameObjectWithTag("PlayerStartPoint");
         formationStartPoint = GameObject.FindGameObjectWithTag("FormationStartPoint");
         formation = GameObject.FindGameObjectWithTag("EnemyFormation");
+        ufo = GameObject.FindGameObjectWithTag("UFO");
 
         if (formation != null)
         {
             formationRigidBody = formation.gameObject.GetComponent<Rigidbody2D>();
+        }
+
+        if(ufo != null)
+        {
+            ufoRigidbody = ufo.gameObject.GetComponent<Rigidbody2D>();
         }
 
         if(playerHit)
@@ -82,12 +90,24 @@ public class GameControl : MonoBehaviour {
         enemyCanShoot = false;
         playerDead = true;
         formationRigidBody.velocity = new Vector2(0f, 0f);
+        AudioManager.audioManager.Stop("EnemySound");
+        if (ufo != null)
+        {
+            ufoRigidbody.velocity = new Vector2(0f, 0f);
+            AudioManager.audioManager.Stop("UFO");
+        }
         yield return new WaitForSeconds(2f);
         lives--;
         formation.transform.position = formationStartPoint.transform.position;
         enemyCanShoot = true;
         formationRigidBody.velocity = new Vector2(1f, 0f) * enemySpeed;
+        if (ufo != null)
+        {
+            ufoRigidbody.velocity = new Vector2(1f, 0f) * ufo.gameObject.GetComponent<UFOControl>().speed;
+            AudioManager.audioManager.Play("UFO");
+        }
         Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
         playerDead = false;
+        AudioManager.audioManager.Play("EnemySound");
     }
 }

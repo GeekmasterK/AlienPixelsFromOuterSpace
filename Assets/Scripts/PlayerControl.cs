@@ -53,6 +53,7 @@ public class PlayerControl : MonoBehaviour {
     {
         if(Input.GetButtonDown("Shoot"))
         {
+            AudioManager.audioManager.Play("PlayerShoot");
             Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
         }
     }

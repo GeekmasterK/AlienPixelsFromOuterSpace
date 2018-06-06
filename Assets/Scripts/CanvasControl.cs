@@ -32,6 +32,8 @@ public class CanvasControl : MonoBehaviour {
     void ShowGameOver()
     {
         Time.timeScale = 0f;
+        AudioManager.audioManager.Stop("EnemySound");
+        AudioManager.audioManager.Stop("UFO");
         gameOverUI.SetActive(true);
     }
 
@@ -39,6 +41,8 @@ public class CanvasControl : MonoBehaviour {
     {
         gamePaused = true;
         Time.timeScale = 0f;
+        AudioManager.audioManager.Pause("EnemySound");
+        AudioManager.audioManager.Pause("UFO");
         pauseMenuUI.SetActive(true);
     }
 
@@ -46,6 +50,8 @@ public class CanvasControl : MonoBehaviour {
     {
         gamePaused = false;
         Time.timeScale = 1f;
+        AudioManager.audioManager.UnPause("EnemySound");
+        AudioManager.audioManager.UnPause("UFO");
         pauseMenuUI.SetActive(false);
     }
 
@@ -56,6 +62,9 @@ public class CanvasControl : MonoBehaviour {
         GameControl.control.score = 0f;
         GameControl.control.level = 1f;
         GameControl.control.gameOver = false;
+        GameControl.control.ufoSpawned = false;
+        AudioManager.audioManager.Stop("EnemySound");
+        AudioManager.audioManager.Stop("UFO");
         gameOverUI.SetActive(false);
         SceneManager.LoadScene(firstLevel, LoadSceneMode.Single);
     }
@@ -67,7 +76,10 @@ public class CanvasControl : MonoBehaviour {
         GameControl.control.score = 0f;
         GameControl.control.level = 1f;
         GameControl.control.gameOver = false;
+        GameControl.control.ufoSpawned = false;
         gameOverUI.SetActive(false);
+        AudioManager.audioManager.Stop("EnemySound");
+        AudioManager.audioManager.Stop("UFO");
         SceneManager.LoadScene(initScene, LoadSceneMode.Single);
     }
 }
