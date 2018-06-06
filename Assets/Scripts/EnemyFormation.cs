@@ -12,13 +12,16 @@ public class EnemyFormation : MonoBehaviour {
 	void Awake ()
     {
         formationRigidBody = GetComponent<Rigidbody2D>();
-        formationRigidBody.velocity = new Vector2(1f, 0f) * GameControl.control.enemySpeed;
+        //formationRigidBody.velocity = new Vector2(1f, 0f) * GameControl.control.enemySpeed;
     }
 
-    void Start()
+    /*void Start()
     {
-        AudioManager.audioManager.Play("EnemySound");
-    }
+        if (GameControl.control.levelStarted)
+        {
+            AudioManager.audioManager.Play("EnemySound");
+        }
+    }*/
 
     void OnCollisionEnter2D(Collision2D other)
     {

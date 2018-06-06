@@ -21,12 +21,18 @@ public class EnemyControl : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        baseFireWaitTime += Random.Range(minFireRateTime, maxFireRateTime);
+        if (GameControl.control.levelStarted)
+        {
+            baseFireWaitTime += Random.Range(minFireRateTime, maxFireRateTime);
+        }
     }
 
 	void FixedUpdate ()
     {
-        Shoot();
+        if (GameControl.control.levelStarted)
+        {
+            Shoot();
+        }
 	}
 
     void OnCollisionEnter2D(Collision2D other)

@@ -13,6 +13,7 @@ public class LevelTransition : MonoBehaviour {
 		if(GameControl.control.enemies.Length <= 0)
         {
             GameControl.control.level++;
+            GameControl.control.canSpawn = true;
             SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
         }
 	}

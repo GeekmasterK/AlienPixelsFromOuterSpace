@@ -17,14 +17,16 @@ public class GameControl : MonoBehaviour {
     public bool playerHit = false;
     public bool enemyCanShoot = true;
     public bool gameOver = false;
-    public bool ufoSpawned = false;
+    public bool canSpawn = false;
     public bool enemiesOnScreen = false;
+    public bool levelStarted = false;
     public GameObject[] enemies;
     public GameObject player;
     public GameObject playerStartPoint;
     public GameObject formationStartPoint;
     public GameObject formation;
     public GameObject ufo;
+    public GameObject[] barriers;
     public Rigidbody2D formationRigidBody;
     public Rigidbody2D ufoRigidbody;
 
@@ -55,6 +57,7 @@ public class GameControl : MonoBehaviour {
         formationStartPoint = GameObject.FindGameObjectWithTag("FormationStartPoint");
         formation = GameObject.FindGameObjectWithTag("EnemyFormation");
         ufo = GameObject.FindGameObjectWithTag("UFO");
+        barriers = GameObject.FindGameObjectsWithTag("BarrierGroup");
 
         if (formation != null)
         {
@@ -106,7 +109,10 @@ public class GameControl : MonoBehaviour {
             ufoRigidbody.velocity = new Vector2(1f, 0f) * ufo.gameObject.GetComponent<UFOControl>().speed;
             AudioManager.audioManager.Play("UFO");
         }
-        Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
+        if (levelStarted)
+        {
+            Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
+        }
         playerDead = false;
         AudioManager.audioManager.Play("EnemySound");
     }

@@ -10,6 +10,13 @@ public class TransitionScene : MonoBehaviour {
 	// Use this for initialization
 	void Awake ()
     {
+        if (GameControl.control.barriers.Length > 0)
+        {
+            foreach (GameObject b in GameControl.control.barriers)
+            {
+                Destroy(b.gameObject);
+            }
+        }
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
 	}
 }

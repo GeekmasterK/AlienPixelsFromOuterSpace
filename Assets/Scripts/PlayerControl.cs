@@ -25,7 +25,7 @@ public class PlayerControl : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (!GameControl.control.playerDead)
+        if (!GameControl.control.playerDead && GameControl.control.levelStarted)
         {
             MovePlayer();
         }
@@ -34,7 +34,7 @@ public class PlayerControl : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (!GameControl.control.playerDead)
+        if (!GameControl.control.playerDead && GameControl.control.levelStarted)
         {
             Shoot();
         }

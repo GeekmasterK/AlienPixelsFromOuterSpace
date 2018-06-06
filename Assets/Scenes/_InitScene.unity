@@ -155,22 +155,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   score: 0
-  scoreForExtraLife: 10000
-  extraLifeIncrement: 10000
+  scoreForExtraLife: 4000
+  extraLifeIncrement: 4000
   level: 1
   enemySpeed: 3
   playerDead: 0
   playerHit: 0
   enemyCanShoot: 1
   gameOver: 0
-  ufoSpawned: 0
+  canSpawn: 1
   enemiesOnScreen: 0
+  levelStarted: 0
   enemies: []
   player: {fileID: 1829351531283540, guid: 23c6982f4e949d34f9e2442a127ff5aa, type: 2}
   playerStartPoint: {fileID: 0}
   formationStartPoint: {fileID: 0}
   formation: {fileID: 0}
+  ufo: {fileID: 0}
   formationRigidBody: {fileID: 0}
+  ufoRigidbody: {fileID: 0}
 --- !u!1 &498492114
 GameObject:
   m_ObjectHideFlags: 0

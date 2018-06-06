@@ -4,38 +4,24 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-    private Spawner ufoSpawner;
     public float minTime;
     public float maxTime;
     public GameObject ufo;
+    public float spawnTime;
 
     // Use this for initialization
     void Awake()
     {
-        if (ufoSpawner == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            ufoSpawner = this;
-        }
-        else if (ufoSpawner != this)
-        {
-            Destroy(gameObject);
-        }
+        spawnTime = Random.Range(minTime, maxTime);
     }
 
     // Update is called once per frame
     void Update ()
     {
-		if(!GameControl.control.ufoSpawned)
+		if(GameControl.control.canSpawn && GameControl.control.levelStarted && !GameControl.control.playerDead && Time.timeSinceLevelLoad >= spawnTime)
         {
-            GameControl.control.ufoSpawned = true;
-            StartCoroutine(SpawnUFO(Random.Range(minTime, maxTime)));
+            Instantiate(ufo, transform.position, transform.rotation);
+            GameControl.control.canSpawn = false;
         }
 	}
-
-    IEnumerator SpawnUFO(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        Instantiate(ufo, transform.position, transform.rotation);
-    }
 }

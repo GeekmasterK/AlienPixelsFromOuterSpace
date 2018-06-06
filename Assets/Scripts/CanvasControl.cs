@@ -62,10 +62,17 @@ public class CanvasControl : MonoBehaviour {
         GameControl.control.score = 0f;
         GameControl.control.level = 1f;
         GameControl.control.gameOver = false;
-        GameControl.control.ufoSpawned = false;
+        GameControl.control.canSpawn = true;
         AudioManager.audioManager.Stop("EnemySound");
         AudioManager.audioManager.Stop("UFO");
         gameOverUI.SetActive(false);
+        if(GameControl.control.barriers.Length > 0)
+        {
+            foreach(GameObject b in GameControl.control.barriers)
+            {
+                Destroy(b.gameObject);
+            }
+        }
         SceneManager.LoadScene(firstLevel, LoadSceneMode.Single);
     }
 
@@ -76,7 +83,7 @@ public class CanvasControl : MonoBehaviour {
         GameControl.control.score = 0f;
         GameControl.control.level = 1f;
         GameControl.control.gameOver = false;
-        GameControl.control.ufoSpawned = false;
+        GameControl.control.canSpawn = true;
         gameOverUI.SetActive(false);
         AudioManager.audioManager.Stop("EnemySound");
         AudioManager.audioManager.Stop("UFO");

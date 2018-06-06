@@ -13,8 +13,12 @@ public class UFOControl : MonoBehaviour {
     {
         ufoRigidbody = GetComponent<Rigidbody2D>();
         ufoRigidbody.velocity = new Vector2(1f, 0f) * speed;
-        AudioManager.audioManager.Play("UFO");
 	}
+
+    void OnBecameVisible()
+    {
+        AudioManager.audioManager.Play("UFO");    
+    }
 
     void OnBecameInvisible()
     {
