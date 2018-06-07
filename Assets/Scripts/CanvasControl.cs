@@ -14,7 +14,7 @@ public class CanvasControl : MonoBehaviour {
 
     void Update()
     {
-        if(Input.GetButtonDown("Pause") && !gamePaused)
+        if(Input.GetButtonDown("Pause") && !gamePaused && GameControl.control.levelStarted)
         {
             PauseGame();
         }
