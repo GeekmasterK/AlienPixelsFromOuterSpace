@@ -10,11 +10,17 @@ public class LevelTransition : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(GameControl.control.enemies.Length <= 0)
+        LoadLevel();
+	}
+
+    // Load the next level on completeion of the current level
+    void LoadLevel()
+    {
+        if (GameControl.control.enemies.Length <= 0)
         {
             GameControl.control.level++;
             GameControl.control.canSpawn = true;
             SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
         }
-	}
+    }
 }

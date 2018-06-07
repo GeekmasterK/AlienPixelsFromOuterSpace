@@ -75,10 +75,17 @@ public class GameControl : MonoBehaviour {
         }
         playerHit = false;
 
-        if(lives > 0f && score >= scoreForExtraLife)
+        GainLife();
+    }
+
+    // Player gains a life via score interval
+    void GainLife()
+    {
+        if (lives > 0f && score >= scoreForExtraLife)
         {
             scoreForExtraLife += extraLifeIncrement;
             lives++;
+            AudioManager.audioManager.Play("GainLife");
         }
     }
 

@@ -18,10 +18,16 @@ public class Spawner : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-		if(GameControl.control.canSpawn && GameControl.control.levelStarted && !GameControl.control.playerDead && Time.timeSinceLevelLoad >= spawnTime)
+        Spawn();
+	}
+
+    // Spawn UFO
+    void Spawn()
+    {
+        if (GameControl.control.canSpawn && GameControl.control.levelStarted && !GameControl.control.playerDead && Time.timeSinceLevelLoad >= spawnTime)
         {
             Instantiate(ufo, transform.position, transform.rotation);
             GameControl.control.canSpawn = false;
         }
-	}
+    }
 }

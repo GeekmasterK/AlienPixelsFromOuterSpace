@@ -25,36 +25,35 @@ public class PlayerControl : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (!GameControl.control.playerDead && GameControl.control.levelStarted)
-        {
-            MovePlayer();
-        }
+        MovePlayer();
     }
 
     // Update is called once per frame
     void Update ()
     {
-        if (!GameControl.control.playerDead && GameControl.control.levelStarted)
-        {
-            Shoot();
-        }
+        Shoot();
 	}
 
     // Move the player
     void MovePlayer()
     {
         float horzMove = Input.GetAxisRaw("Horizontal");
-        
-        playerRigidbody.velocity = new Vector2(horzMove, 0f) * speed;
+        if (!GameControl.control.playerDead && GameControl.control.levelStarted)
+        {
+            playerRigidbody.velocity = new Vector2(horzMove, 0f) * speed;
+        }
     }
 
     // Shoot a bullet
     void Shoot()
     {
-        if(Input.GetButtonDown("Shoot"))
+        if (!GameControl.control.playerDead && GameControl.control.levelStarted)
         {
-            AudioManager.audioManager.Play("PlayerShoot");
-            Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
+            if (Input.GetButtonDown("Shoot"))
+            {
+                AudioManager.audioManager.Play("PlayerShoot");
+                Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
+            }
         }
     }
 }

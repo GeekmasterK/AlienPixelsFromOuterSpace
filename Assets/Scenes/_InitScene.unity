@@ -155,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   score: 0
-  scoreForExtraLife: 4000
-  extraLifeIncrement: 4000
+  scoreForExtraLife: 2000
+  extraLifeIncrement: 2000
   level: 1
   enemySpeed: 3
   playerDead: 0
@@ -172,6 +172,7 @@ MonoBehaviour:
   formationStartPoint: {fileID: 0}
   formation: {fileID: 0}
   ufo: {fileID: 0}
+  barriers: []
   formationRigidBody: {fileID: 0}
   ufoRigidbody: {fileID: 0}
 --- !u!1 &498492114
@@ -246,6 +247,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BarrierShot
     clip: {fileID: 8300000, guid: d45e98e69a1249c46b3f3f3ceecd62ad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GainLife
+    clip: {fileID: 8300000, guid: 5b03c522d1f9cda4d95228d426187fc6, type: 3}
     volume: 1
     pitch: 1
     loop: 0
