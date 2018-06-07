@@ -75,11 +75,6 @@ public class GameControl : MonoBehaviour {
         }
         playerHit = false;
 
-        if(lives <= 0f)
-        {
-            gameOver = true;
-        }
-
         if(lives > 0f && score >= scoreForExtraLife)
         {
             scoreForExtraLife += extraLifeIncrement;
@@ -101,19 +96,26 @@ public class GameControl : MonoBehaviour {
         }
         yield return new WaitForSeconds(2f);
         lives--;
-        formation.transform.position = formationStartPoint.transform.position;
-        enemyCanShoot = true;
-        formationRigidBody.velocity = new Vector2(1f, 0f) * enemySpeed;
-        if (ufo != null)
+        if (lives <= 0f)
         {
-            ufoRigidbody.velocity = new Vector2(1f, 0f) * ufo.gameObject.GetComponent<UFOControl>().speed;
-            AudioManager.audioManager.Play("UFO");
+            gameOver = true;
         }
-        if (levelStarted)
+        else
         {
-            Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
+            formation.transform.position = formationStartPoint.transform.position;
+            enemyCanShoot = true;
+            formationRigidBody.velocity = new Vector2(1f, 0f) * enemySpeed;
+            if (ufo != null)
+            {
+                ufoRigidbody.velocity = new Vector2(1f, 0f) * ufo.gameObject.GetComponent<UFOControl>().speed;
+                AudioManager.audioManager.Play("UFO");
+            }
+            if (levelStarted && !gameOver)
+            {
+                Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
+            }
+            playerDead = false;
+            AudioManager.audioManager.Play("EnemySound");
         }
-        playerDead = false;
-        AudioManager.audioManager.Play("EnemySound");
     }
 }

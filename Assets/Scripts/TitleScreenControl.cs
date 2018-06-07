@@ -11,6 +11,7 @@ public class TitleScreenControl : MonoBehaviour {
 
     public void StartGame()
     {
+        GameControl.control.level = 1f;
         SceneManager.LoadScene(firstLevel, LoadSceneMode.Single);
     }
 

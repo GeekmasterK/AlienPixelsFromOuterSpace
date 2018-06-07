@@ -7,6 +7,7 @@ public class CanvasControl : MonoBehaviour {
 
     public string firstLevel;
     public string initScene;
+    public GameObject hudUI;
     public GameObject gameOverUI;
     public GameObject pauseMenuUI;
     public bool gamePaused;
@@ -31,10 +32,26 @@ public class CanvasControl : MonoBehaviour {
 
     void ShowGameOver()
     {
+        GameControl.control.canSpawn = false;
         Time.timeScale = 0f;
         AudioManager.audioManager.Stop("EnemySound");
         AudioManager.audioManager.Stop("UFO");
         gameOverUI.SetActive(true);
+        hudUI.SetActive(false);
+        if(GameControl.control.enemies.Length > 0)
+        {
+            foreach(GameObject e in GameControl.control.enemies)
+            {
+                e.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+        if (GameControl.control.barriers.Length > 0)
+        {
+            foreach (GameObject b in GameControl.control.barriers)
+            {
+                Destroy(b.gameObject);
+            }
+        }
     }
 
     void PauseGame()
@@ -57,36 +74,43 @@ public class CanvasControl : MonoBehaviour {
 
     public void RestartGame()
     {
-        Time.timeScale = 1f;
         GameControl.control.lives = 3f;
         GameControl.control.score = 0f;
         GameControl.control.level = 1f;
         GameControl.control.gameOver = false;
+        GameControl.control.enemyCanShoot = true;
         GameControl.control.canSpawn = true;
-        AudioManager.audioManager.Stop("EnemySound");
-        AudioManager.audioManager.Stop("UFO");
+        GameControl.control.playerDead = false;
+        Time.timeScale = 1f;
         gameOverUI.SetActive(false);
-        if(GameControl.control.barriers.Length > 0)
-        {
-            foreach(GameObject b in GameControl.control.barriers)
-            {
-                Destroy(b.gameObject);
-            }
-        }
         SceneManager.LoadScene(firstLevel, LoadSceneMode.Single);
     }
 
     public void ReturnToTitle()
     {
-        Time.timeScale = 1f;
+        if (GameControl.control.barriers.Length > 0)
+        {
+            foreach (GameObject b in GameControl.control.barriers)
+            {
+                Destroy(b.gameObject);
+            }
+        }
+        if (GameControl.control.enemies.Length > 0)
+        {
+            foreach (GameObject e in GameControl.control.enemies)
+            {
+                e.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+        hudUI.SetActive(false);
         GameControl.control.lives = 3f;
         GameControl.control.score = 0f;
-        GameControl.control.level = 1f;
         GameControl.control.gameOver = false;
         GameControl.control.canSpawn = true;
+        GameControl.control.enemyCanShoot = true;
+        GameControl.control.playerDead = false;
         gameOverUI.SetActive(false);
-        AudioManager.audioManager.Stop("EnemySound");
-        AudioManager.audioManager.Stop("UFO");
+        Time.timeScale = 1f;
         SceneManager.LoadScene(initScene, LoadSceneMode.Single);
     }
 }
