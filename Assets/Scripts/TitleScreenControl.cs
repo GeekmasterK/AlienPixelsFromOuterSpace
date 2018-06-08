@@ -7,6 +7,7 @@ public class TitleScreenControl : MonoBehaviour {
 
     public GameObject titleScreenUI;
     public GameObject howToPlayUIPage1;
+    public GameObject howToplayUIPage2;
     public string firstLevel;
 
     public void StartGame()
@@ -18,12 +19,21 @@ public class TitleScreenControl : MonoBehaviour {
     public void ShowHowToPlay()
     {
         titleScreenUI.SetActive(false);
+        howToplayUIPage2.SetActive(false);
         howToPlayUIPage1.SetActive(true);
+    }
+
+    public void ShowHowToPlayPage2()
+    {
+        titleScreenUI.SetActive(false);
+        howToPlayUIPage1.SetActive(false);
+        howToplayUIPage2.SetActive(true);
     }
 
     public void ShowTitle()
     {
         howToPlayUIPage1.SetActive(false);
+        howToplayUIPage2.SetActive(false);
         titleScreenUI.SetActive(true);
     }
 }

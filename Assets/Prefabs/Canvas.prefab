@@ -1530,7 +1530,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart Game
+  m_Text: Play Again
 --- !u!114 &114892311528031070
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -19,6 +19,10 @@ public class LevelTransition : MonoBehaviour {
         if (GameControl.control.enemies.Length <= 0)
         {
             GameControl.control.level++;
+            if (GameControl.control.enemySpeed <= 5f)
+            {
+                GameControl.control.enemySpeed += 0.25f;
+            }
             GameControl.control.canSpawn = true;
             SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
         }

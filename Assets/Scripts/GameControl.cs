@@ -27,6 +27,7 @@ public class GameControl : MonoBehaviour {
     public GameObject formation;
     public GameObject ufo;
     public GameObject[] barriers;
+    public LevelStart levelStart;
     public Rigidbody2D formationRigidBody;
     public Rigidbody2D ufoRigidbody;
 
@@ -58,6 +59,7 @@ public class GameControl : MonoBehaviour {
         formation = GameObject.FindGameObjectWithTag("EnemyFormation");
         ufo = GameObject.FindGameObjectWithTag("UFO");
         barriers = GameObject.FindGameObjectsWithTag("BarrierGroup");
+        levelStart = FindObjectOfType<LevelStart>();
 
         if (formation != null)
         {
@@ -110,18 +112,21 @@ public class GameControl : MonoBehaviour {
         else
         {
             formation.transform.position = formationStartPoint.transform.position;
+            if (levelStarted && !gameOver)
+            {
+                Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
+            }
+            levelStart.readyText.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            levelStart.readyText.SetActive(false);
             enemyCanShoot = true;
             formationRigidBody.velocity = new Vector2(1f, 0f) * enemySpeed;
+            playerDead = false;
             if (ufo != null)
             {
                 ufoRigidbody.velocity = new Vector2(1f, 0f) * ufo.gameObject.GetComponent<UFOControl>().speed;
                 AudioManager.audioManager.Play("UFO");
             }
-            if (levelStarted && !gameOver)
-            {
-                Instantiate(player, playerStartPoint.transform.position, player.transform.rotation);
-            }
-            playerDead = false;
             AudioManager.audioManager.Play("EnemySound");
         }
     }

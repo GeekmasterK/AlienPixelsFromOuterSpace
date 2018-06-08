@@ -688,10 +688,6 @@ Prefab:
       propertyPath: formationStartPoint
       value: 
       objectReference: {fileID: 1136978231}
-    - target: {fileID: 1798941923073550, guid: aa48e11d665927c43be2547fffd1ab6a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa48e11d665927c43be2547fffd1ab6a, type: 2}
   m_IsPrefabParent: 0

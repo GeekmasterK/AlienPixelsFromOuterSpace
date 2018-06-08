@@ -81,6 +81,7 @@ public class CanvasControl : MonoBehaviour {
         GameControl.control.enemyCanShoot = true;
         GameControl.control.canSpawn = true;
         GameControl.control.playerDead = false;
+        GameControl.control.scoreForExtraLife = 2000f;
         Time.timeScale = 1f;
         gameOverUI.SetActive(false);
         SceneManager.LoadScene(firstLevel, LoadSceneMode.Single);
@@ -110,6 +111,7 @@ public class CanvasControl : MonoBehaviour {
         GameControl.control.enemyCanShoot = true;
         GameControl.control.playerDead = false;
         gameOverUI.SetActive(false);
+        GameControl.control.scoreForExtraLife = 2000f;
         Time.timeScale = 1f;
         SceneManager.LoadScene(initScene, LoadSceneMode.Single);
     }
