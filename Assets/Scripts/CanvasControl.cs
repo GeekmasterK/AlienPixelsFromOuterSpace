@@ -12,6 +12,7 @@ public class CanvasControl : MonoBehaviour {
     public GameObject pauseMenuUI;
     public bool gamePaused;
 
+    // Update is called once per frame
     void Update()
     {
         // Check to see if the level has started, the game is not already paused, and the pause button is pressed
@@ -71,6 +72,13 @@ public class CanvasControl : MonoBehaviour {
                 // Clear out the barriers
                 Destroy(b.gameObject);
             }
+        }
+
+        // Check to see if the UFO exists
+        if(GameControl.control.ufo != null)
+        {
+            // If the UFO exists, destroy it
+            Destroy(GameControl.control.ufo.gameObject);
         }
     }
 

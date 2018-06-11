@@ -10,6 +10,7 @@ public class Level : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // Set the current level number text
         levelText.text = GameControl.control.level.ToString("0");
 	}
 }

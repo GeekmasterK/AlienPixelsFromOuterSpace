@@ -10,6 +10,7 @@ public class TransitionScene : MonoBehaviour {
 	// Use this for initialization
 	void Awake ()
     {
+        // Load the title screen from the initialization scene
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
 	}
 }

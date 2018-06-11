@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+// Serializable class to store sound data
 [System.Serializable]
 public class Sound {
     public string name;

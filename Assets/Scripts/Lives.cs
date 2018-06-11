@@ -10,6 +10,7 @@ public class Lives : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // Set the current lives count text
         livesText.text = GameControl.control.lives.ToString("0");
 	}
 }

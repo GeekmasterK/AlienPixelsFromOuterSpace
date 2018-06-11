@@ -10,6 +10,7 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // Set the current score text
         scoreText.text = GameControl.control.score.ToString("0");
 	}
 }
