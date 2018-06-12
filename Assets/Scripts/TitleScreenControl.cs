@@ -8,6 +8,7 @@ public class TitleScreenControl : MonoBehaviour {
     public GameObject titleScreenUI;
     public GameObject howToPlayUIPage1;
     public GameObject howToplayUIPage2;
+    public GameObject quitGameUI;
     public string firstLevel;
 
     // Start the game
@@ -39,9 +40,34 @@ public class TitleScreenControl : MonoBehaviour {
     // Show the title menu
     public void ShowTitle()
     {
-        // Turn off both pages of the How to Play UI, and turn on the title screen UI
+        // Turn off all other UI, and turn on the title screen UI
         howToPlayUIPage1.SetActive(false);
         howToplayUIPage2.SetActive(false);
+        quitGameUI.SetActive(false);
         titleScreenUI.SetActive(true);
+    }
+
+    // Show Quit Game prompt
+    public void ShowQuitGame()
+    {
+        // Turn off all other UI, and turn on the Quit Game prompt
+        titleScreenUI.SetActive(false);
+        quitGameUI.SetActive(true);
+    }
+
+    // Quit the game
+    public void QuitGame()
+    {
+        // Quit the game based on the current build
+        #if (UNITY_EDITOR || DEVELOPMENT_BUILD)
+            Debug.Log(this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
+        #endif
+        #if (UNITY_EDITOR)
+            UnityEditor.EditorApplication.isPlaying = false;
+        #elif (UNITY_STANDALONE)
+            Application.Quit();
+        #elif (UNITY_WEBGL)
+            Application.OpenURL("https://kevintheissgamedev.blogspot.com/");
+        #endif
     }
 }

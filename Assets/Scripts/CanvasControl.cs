@@ -10,6 +10,8 @@ public class CanvasControl : MonoBehaviour {
     public GameObject hudUI;
     public GameObject gameOverUI;
     public GameObject pauseMenuUI;
+    public GameObject quitGameUI;
+    public GameObject gameOverQuitUI;
     public bool gamePaused;
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class CanvasControl : MonoBehaviour {
         // stop the game's time scale,
         // stop the enemy and UFO sounds,
         // display the Game Over screen,
-        // and disable the HUD
+        // and disable the HUD,
         GameControl.control.canSpawn = false;
         Time.timeScale = 0f;
         AudioManager.audioManager.Stop("EnemySound");
@@ -83,7 +85,7 @@ public class CanvasControl : MonoBehaviour {
     }
 
     // Pause the game
-    void PauseGame()
+    public void PauseGame()
     {
         // Set the paused flag to true,
         // stop the game's time scale,
@@ -93,6 +95,7 @@ public class CanvasControl : MonoBehaviour {
         Time.timeScale = 0f;
         AudioManager.audioManager.Pause("EnemySound");
         AudioManager.audioManager.Pause("UFO");
+        quitGameUI.SetActive(false);
         pauseMenuUI.SetActive(true);
     }
 
@@ -174,5 +177,47 @@ public class CanvasControl : MonoBehaviour {
 
         // Load the initialization scene
         SceneManager.LoadScene(initScene, LoadSceneMode.Single);
+    }
+
+    // Show Quit Game prompt
+    public void ShowQuitGame()
+    {
+        // Turn off all other UI, and turn on the Quit Game prompt
+        if (GameControl.control.gameOver)
+        {
+            gameOverUI.SetActive(false);
+            pauseMenuUI.SetActive(false);
+            gameOverQuitUI.SetActive(true);
+        }
+        else
+        {
+            gameOverUI.SetActive(false);
+            pauseMenuUI.SetActive(false);
+            quitGameUI.SetActive(true);
+        }
+    }
+
+    // Go back to the Game Over screen from the Quit Game prompt
+    public void BackToGameOver()
+    {
+        gameOverQuitUI.SetActive(false);
+        gameOverUI.SetActive(true);
+    }
+
+    // Quit the game
+    public void QuitGame()
+    {
+        // Quit the game based on the current build
+
+        #if (UNITY_EDITOR || DEVELOPMENT_BUILD)
+            Debug.Log(this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
+        #endif
+        #if (UNITY_EDITOR)
+            UnityEditor.EditorApplication.isPlaying = false;
+        #elif (UNITY_STANDALONE)
+            Application.Quit();
+        #elif (UNITY_WEBGL)
+            Application.OpenURL("https://kevintheissgamedev.blogspot.com/");
+        #endif
     }
 }
