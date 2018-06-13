@@ -58,8 +58,8 @@ public class GameControl : MonoBehaviour {
         AudioManager.audioManager.Play("UFOTitle");   
     }
 
-    // Update is called once per frame
-    void Update()
+    // Called once per frame
+    void FixedUpdate()
     {   
         // Initialize the global variables to their most recent state
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -117,6 +117,7 @@ public class GameControl : MonoBehaviour {
         enemyCanShoot = false;
         playerDead = true;
         formationRigidBody.velocity = new Vector2(0f, 0f);
+        formationRigidBody.Sleep();
 
         // Stop the enemy sound
         AudioManager.audioManager.Stop("EnemySound");
@@ -126,6 +127,7 @@ public class GameControl : MonoBehaviour {
         {
             // If the UFO exists, stop its movement, and stop playing the UFO sound
             ufoRigidbody.velocity = new Vector2(0f, 0f);
+            ufoRigidbody.Sleep();
             AudioManager.audioManager.Stop("UFO");
         }
 
