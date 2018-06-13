@@ -204,7 +204,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
   m_IsActive: 0
+=======
+  m_IsActive: 1
+>>>>>>> parent of 6532639... Removed the Quit option from the WebGL build
 --- !u!224 &194909596
 RectTransform:
   m_ObjectHideFlags: 0
