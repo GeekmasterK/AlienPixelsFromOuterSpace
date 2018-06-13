@@ -19,14 +19,14 @@ public class EnemyFormation : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D other)
     {
         // Check to see if the formation hits the left wall
-        if (other.gameObject.tag == "LeftWall")
+        if (other.gameObject.tag == "LeftWall" && !GameControl.control.playerDead)
         {
             // If the formation hits the left wall, move down and change direction
             StartCoroutine(MoveDownAndTurn(1));
         }
 
         // Check to see if the formation hits the right wall
-        if (other.gameObject.tag == "RightWall")
+        if (other.gameObject.tag == "RightWall" && !GameControl.control.playerDead)
         {
             // If the formation hits the right wall, move down and change direction
             StartCoroutine(MoveDownAndTurn(-1));
