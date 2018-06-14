@@ -6,3 +6,7 @@ Player Controls:
 Left arrow or "a" key to move left
 
 Right arrow or "d" key to move right
+
+Spacebar to shoot
+
+See "How to Play" in-game for full tutorial
